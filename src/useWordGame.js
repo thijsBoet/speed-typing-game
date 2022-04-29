@@ -50,7 +50,7 @@ const useWordGame = (STARTING_TIME = 10) => {
 			}
     }, [timeRemaining, isTimeRunning]);
 
-  return {
+	return {
 		STARTING_TIME,
 		text,
 		handleChange,
