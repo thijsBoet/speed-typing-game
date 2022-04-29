@@ -31,11 +31,6 @@ const useWordGame = (STARTING_TIME = 10) => {
 			textareaRef.current.focus();
 		};
 
-		const endGame = () => {
-			setIsTimeRunning(false);
-			setTimeRemaining(STARTING_TIME);
-		};
-
 		useEffect(() => {
 			if (timeRemaining > 0 && isTimeRunning) {
 				setTimeout(
@@ -46,9 +41,10 @@ const useWordGame = (STARTING_TIME = 10) => {
 				setLetterCount(calculateLetterCount(text));
 			}
 			if (timeRemaining <= 0) {
-				endGame();
+				setIsTimeRunning(false);
+				setTimeRemaining(STARTING_TIME);
 			}
-    }, [timeRemaining, isTimeRunning]);
+		}, [timeRemaining, isTimeRunning]);
 
   return {
 		STARTING_TIME,
